@@ -25,7 +25,8 @@ display(data)
 
 from pyspark.ml import Pipeline
 
-# spark-nlp-1.3.0.jar is attached to the cluster. This library was downloaded from the spark-packages repository https://spark-packages.org/package/JohnSnowLabs/spark-nlp
+# spark-nlp-1.3.0.jar is attached to the cluster. This library was downloaded from the
+# spark-packages repository https://spark-packages.org/package/JohnSnowLabs/spark-nlp
 from sparknlp.annotator import *
 from sparknlp.common import *
 from sparknlp.base import *
@@ -42,7 +43,8 @@ tokenizer = Tokenizer()\
   .setInputCols(["document"])\
   .setOutputCol("token")
 
-# This should be optional as it is a workaround in this case because of the entites file normalization (Read more: https://github.com/JohnSnowLabs/spark-nlp/issues/57)
+# This should be optional as it is a workaround in this case because of the entities file content
+# normalization (Read more: https://github.com/JohnSnowLabs/spark-nlp/issues/57#issuecomment-361993477)
 normalizer = Normalizer()\
   .setInputCols(["token"])\
   .setOutputCol("normal")
